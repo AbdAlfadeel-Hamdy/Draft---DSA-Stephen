@@ -15,11 +15,11 @@ function reverse(str) {
   // return res;
   //////////////////////////////
   // solution (2)
-  const charArr = str.split('');
-  return charArr.reduce((reversed, char) => char + reversed, '');
+  // const charArr = str.split('');
+  // return charArr.reduce((reversed, char) => char + reversed, '');
   //////////////////////////////
   // solution(3);
-  // const reversedArr = str.split(
+  return str.split('').reverse().join('');
 }
 
 module.exports = reverse;
