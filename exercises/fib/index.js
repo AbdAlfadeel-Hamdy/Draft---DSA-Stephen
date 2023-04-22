@@ -35,21 +35,22 @@
 // }
 
 // Another Solution
-// function slowFib(n) {
-//   if (n < 2) return n;
-//   else return slowFib(n - 1) + slowFib(n - 2);
-// }
+function slowFib(n) {
+  if (n < 2) return n;
+  else return fib(n - 1) + fib(n - 2);
+}
 
-// const memoize = function (fn) {
-//   const memos = {};
-//   return function (rest) {
-//     const ans = memos[`fib${n}`];
-//     memos[`fib${n}`] = ans;
-//     return ans;
-//   };
-// };
+const memoize = function (fn) {
+  const memos = {};
+  return function (...rest) {
+    if (memos[rest]) return memos[rest];
+    const ans = fn.apply(this, rest);
+    memos[rest] = ans;
+    return ans;
+  };
+};
 
-// const fib = memoize(slowFib);
+const fib = memoize(slowFib);
 
 console.log(fib(60));
 
