@@ -33,6 +33,7 @@ class Queue {
     while (this.secondStack.peek()) {
       this.firstStack.push(this.secondStack.pop());
     }
+
     return targetItem;
   }
   peek() {
