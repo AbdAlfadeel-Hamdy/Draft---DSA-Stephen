@@ -22,25 +22,24 @@ class Queue {
   add(value) {
     this.firstStack.push(value);
   }
-  peek() {
+  traverseStacks(method) {
     while (this.firstStack.peek()) {
       this.secondStack.push(this.firstStack.pop());
     }
-    const removedItem = this.secondStack.peek();
+
+    const targetItem =
+      method === 'remove' ? this.secondStack.pop() : this.secondStack.peek();
+
     while (this.secondStack.peek()) {
       this.firstStack.push(this.secondStack.pop());
     }
-    return removedItem;
+    return targetItem;
+  }
+  peek() {
+    return this.traverseStacks('peek');
   }
   remove() {
-    while (this.firstStack.peek()) {
-      this.secondStack.push(this.firstStack.pop());
-    }
-    const removedItem = this.secondStack.pop();
-    while (this.secondStack.peek()) {
-      this.firstStack.push(this.secondStack.pop());
-    }
-    return removedItem;
+    return this.traverseStacks('remove');
   }
 }
 
