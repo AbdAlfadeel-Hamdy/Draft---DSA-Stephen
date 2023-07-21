@@ -39,7 +39,7 @@ function levelWidth(root) {
       result.push(0);
       arr.push('S');
     } else {
-      result[result.length - 1] = result[result.length - 1] + 1;
+      result[result.length - 1]++;
       arr.push(...removedNode.children);
     }
   }
