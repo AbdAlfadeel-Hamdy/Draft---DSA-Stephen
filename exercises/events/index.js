@@ -22,6 +22,7 @@ class Events {
   // with the given eventName
   off(eventName) {
     this.events[eventName] = [];
+    // delete this.events[eventName];
   }
 }
 
